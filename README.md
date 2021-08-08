@@ -20,4 +20,7 @@ $ docker exec -it sqlachemy-sandbox_mysql_1 bash -p
 
 $ mysql -u root -p -h 127.0.0.1
 # Password is MYSQL_ROOT_PASSWORD in docker-compose.yaml
+
+mysql> create database mydb;
+mysql> show create database mysql;
 ```
