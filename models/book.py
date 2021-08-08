@@ -4,8 +4,8 @@ from .base_model import BaseModel
 
 
 class Book(BaseModel):
-  __table__ = 'books'
+  __tablename__ = 'books'
 
   id = Column(Integer, primary_key=True)
-  name = Column(String(255))
+  name = Column(String(255), nullable=False)
   description = Column(Text)

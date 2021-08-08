@@ -14,9 +14,6 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 
 from models.base_model import BaseModel
 
-
-DB_NAME = os.environ.get('DB_NAME', 'mydb')
-
 DEFAULT_QUERY_ENGINE_URL = {'charset': 'utf8'}
 
 session: Optional[scoped_session] = None

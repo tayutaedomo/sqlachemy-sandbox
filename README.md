@@ -31,7 +31,8 @@ mysql> show create database mysql;
 $ cd sqlachemy-sandbox
 $ source venv/bin/activate
 
-$ python scripts/connect_db.py
+$ python scripts/db_connect.py
+$ python scripts/book_create.py
 ```
 
 
