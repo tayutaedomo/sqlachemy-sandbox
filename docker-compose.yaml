@@ -1,0 +1,12 @@
+# Refer: https://qiita.com/TAMIYAN/items/ed9ec892d91e5af962c6
+version: "3"
+services:
+  mysql:
+    build: ./docker/mysql/
+    image: original_mysql_world
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "${DB_PROT:-3306}:3306"
+    volumes:
+      - ./docker/mysql/db:/docker-entrypoint-initdb.d
