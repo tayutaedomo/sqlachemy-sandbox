@@ -33,6 +33,7 @@ $ source venv/bin/activate
 
 $ python scripts/db_connect.py
 $ python scripts/book_create.py
+$ python scripts/book_update.py
 ```
 
 
