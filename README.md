@@ -24,3 +24,12 @@ $ mysql -u root -p -h 127.0.0.1
 mysql> create database mydb;
 mysql> show create database mysql;
 ```
+
+
+## Scripts
+```
+$ cd sqlachemy-sandbox
+$ source venv/bin/activate
+
+$ python scripts/connect_db.py
+```
