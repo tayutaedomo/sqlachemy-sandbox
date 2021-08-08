@@ -33,3 +33,16 @@ $ source venv/bin/activate
 
 $ python scripts/connect_db.py
 ```
+
+
+## DB Migration with 
+Create a new migration file.
+```
+$ alembic revision --autogenerate -m "create books table" --rev-id=001
+```
+
+Execute upgrade or downgrade.
+```
+$ alembic upgrade head
+$ alembic downgrade base
+```

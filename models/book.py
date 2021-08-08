@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, text
+from sqlalchemy import Column, Integer, String, Text
 
 from .base_model import BaseModel
 
@@ -8,4 +8,4 @@ class Book(BaseModel):
 
   id = Column(Integer, primary_key=True)
   name = Column(String(255))
-  description = Column(text)
+  description = Column(Text)
