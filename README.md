@@ -22,7 +22,7 @@ $ mysql -u root -p -h 127.0.0.1
 # Password is MYSQL_ROOT_PASSWORD in docker-compose.yaml
 
 mysql> create database mydb;
-mysql> show create database mysql;
+mysql> show create database mydb;
 ```
 
 
@@ -51,8 +51,14 @@ $ python scripts/book_update.py
 
 
 ## Test
+Create a new db for test.
+```
+mysql> create database mytestdb;
+mysql> show create database mytestdb;
+```
+
 ```
 $ pytest tests/
-$ pytest tests/test_book.py
-$ pytest tests/test_book.py::test_01
+$ pytest tests/models/test_book.py
+$ pytest tests/models/test_book.py::test_01
 ```
