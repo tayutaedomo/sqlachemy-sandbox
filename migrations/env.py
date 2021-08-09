@@ -1,4 +1,3 @@
-
 import os
 import sys
 
@@ -14,6 +13,8 @@ from sqlalchemy import pool
 from alembic import context
 
 from models.base_model import Base
+
+from utils.db import create_engine
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -67,11 +68,15 @@ def run_migrations_online():
     and associate a connection with the context.
 
     """
-    connectable = engine_from_config(
-        config.get_section(config.config_ini_section),
-        prefix="sqlalchemy.",
-        poolclass=pool.NullPool,
-    )
+    # connectable = engine_from_config(
+    #     config.get_section(config.config_ini_section),
+    #     prefix="sqlalchemy.",
+    #     poolclass=pool.NullPool,
+    # )
+    options = context.get_x_argument(as_dictionary=True)
+    db_name = options['database']
+    port = options['port']
+    connectable = create_engine(db_name=db_name, port=port)
 
     with connectable.connect() as connection:
         context.configure(

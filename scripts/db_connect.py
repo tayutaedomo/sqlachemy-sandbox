@@ -18,6 +18,8 @@ DEFAULT_QUERY_ENGINE_URL = {'charset': 'utf8'}
 
 session: Optional[scoped_session] = None
 
+DB_NAME = os.environ.get('DB_NAME', 'mydb')
+
 
 def create_engine(
     db_name: Optional[str] = None,
