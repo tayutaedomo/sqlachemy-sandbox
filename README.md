@@ -57,6 +57,11 @@ mysql> create database mytestdb;
 mysql> show create database mytestdb;
 ```
 
+Execute migrations.
+```
+$ alembic -x database=mytestdb -x port=3306 upgrade head
+```
+
 ```
 $ pytest tests/
 $ pytest tests/models/test_book.py
