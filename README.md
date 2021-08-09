@@ -26,6 +26,19 @@ mysql> show create database mysql;
 ```
 
 
+## DB Migration with
+Create a new migration file.
+```
+$ alembic revision --autogenerate -m "create books table" --rev-id=001
+```
+
+Execute upgrade or downgrade.
+```
+$ alembic upgrade head
+$ alembic downgrade base
+```
+
+
 ## Scripts
 ```
 $ cd sqlachemy-sandbox
@@ -37,14 +50,9 @@ $ python scripts/book_update.py
 ```
 
 
-## DB Migration with 
-Create a new migration file.
+## Test
 ```
-$ alembic revision --autogenerate -m "create books table" --rev-id=001
-```
-
-Execute upgrade or downgrade.
-```
-$ alembic upgrade head
-$ alembic downgrade base
+$ pytest tests/
+$ pytest tests/test_book.py
+$ pytest tests/test_book.py::test_01
 ```
