@@ -1,20 +1,14 @@
 import os
 import sys
-
-ROOT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
-ROOT_PATH = os.path.abspath(ROOT_PATH)
-sys.path.append(ROOT_PATH)
-
 from logging.config import fileConfig
-
-from sqlalchemy import engine_from_config
-from sqlalchemy import pool
 
 from alembic import context
 
-from models.base_model import Base
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import models  # noqa: F401, E402 isort:skip
+from models.base_model import Base  # noqa: E402 isort:skip
+from utils.db import create_engine  # noqa: E402 isort:skip
 
-from utils.db import create_engine
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
