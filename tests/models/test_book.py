@@ -1,13 +1,11 @@
 import os
 import sys
 
-ROOT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
-ROOT_PATH = os.path.abspath(ROOT_PATH)
-sys.path.append(ROOT_PATH)
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
-from utils.db import get_session
-from models.book import Book
-from tests.factories.book_factory import BookFactory
+from utils.db import get_session  # noqa: F401, E402 isort:skip
+from models import Book  # noqa: F401, E402 isort:skip
+from tests.factories import BookFactory  # noqa: F401, E402 isort:skip
 
 
 def test_01():

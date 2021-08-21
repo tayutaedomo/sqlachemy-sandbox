@@ -4,7 +4,7 @@ from logging.config import fileConfig
 
 from alembic import context
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 import models  # noqa: F401, E402 isort:skip
 from models.base_model import Base  # noqa: E402 isort:skip
 from utils.db import create_engine  # noqa: E402 isort:skip

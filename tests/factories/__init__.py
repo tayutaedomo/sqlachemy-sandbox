@@ -1,1 +1,1 @@
-from .book_factory import BookFactory
+from .book_factory import BookFactory  # noqa: F401

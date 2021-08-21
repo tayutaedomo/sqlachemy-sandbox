@@ -1,13 +1,11 @@
 import os
 import sys
 
-ROOT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
-ROOT_PATH = os.path.abspath(ROOT_PATH)
-sys.path.append(ROOT_PATH)
-
 import pytest
 
-from utils.db import has_session, create_engine, setup_db, get_session
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
+from utils.db import has_session, create_engine, setup_db, get_session  # noqa: F401, E402 isort:skip
 
 
 DB_NAME = os.environ.get('DB_NAME', 'mytestdb')
