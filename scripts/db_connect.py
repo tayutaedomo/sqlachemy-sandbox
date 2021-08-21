@@ -1,10 +1,5 @@
 import os
 import sys
-
-ROOT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
-ROOT_PATH = os.path.abspath(ROOT_PATH)
-sys.path.append(ROOT_PATH)
-
 from typing import Optional, Union
 
 from sqlalchemy import create_engine as create_engine_
@@ -12,7 +7,10 @@ from sqlalchemy.engine import Engine
 from sqlalchemy.engine.url import URL
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-from models.base_model import BaseModel
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
+from models.base_model import BaseModel  # noqa: F401, E402 isort:skip
+
 
 DEFAULT_QUERY_ENGINE_URL = {'charset': 'utf8'}
 

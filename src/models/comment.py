@@ -20,4 +20,4 @@ class Comment(BaseModel):
       index=True,
       unique=False
   )
-  book = relationship('books')
+  # book = relationship('books')
