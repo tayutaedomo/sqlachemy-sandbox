@@ -5,13 +5,16 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..',
 
 from utils.db import get_session  # noqa: F401, E402 isort:skip
 from models import Book  # noqa: F401, E402 isort:skip
-from tests.factories import BookFactory  # noqa: F401, E402 isort:skip
+from tests.factories import AuthorFactory, BookFactory  # noqa: F401, E402 isort:skip
 
 
 def test_01():
   session = get_session()
 
-  BookFactory()
+  authtor = AuthorFactory()
+  session.flush()
+
+  BookFactory(author_id=authtor.id)
 
   books = session.query(Book).all()
 

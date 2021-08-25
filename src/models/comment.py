@@ -20,4 +20,15 @@ class Comment(BaseModel):
       index=True,
       unique=False
   )
-  # book = relationship('books')
+
+  book = relationship('books')
+
+  # TODO
+  # parent_id = Column(
+  #     INTEGER(11),
+  #     ForeignKey('comments.id', ondelete='', onupdate=''),
+  #     nullable=True,
+  #     index=True,
+  #     unique=False
+  # )
+  # parent = relationship('authors')

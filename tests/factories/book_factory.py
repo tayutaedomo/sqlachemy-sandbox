@@ -1,14 +1,13 @@
 import os
 import sys
 
-ROOT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
-ROOT_PATH = os.path.abspath(ROOT_PATH)
-sys.path.append(ROOT_PATH)
-
 import factory
 from factory.alchemy import SQLAlchemyModelFactory as Factory
 
-from models.book import Book
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
+from models import Book, Author  # noqa: F401, E402 isort:skip
+from .author_factory import AuthorFactory  # noqa: F401, E402 isort:skip
 
 
 class BookFactory(Factory):
@@ -17,5 +16,7 @@ class BookFactory(Factory):
     sqlalchemy_session = Book.session
     sqlalchemy_session_persistence = 'flush'
 
-  name = factory.Sequence(lambda n: f'name {n}')
-  description = factory.Sequence(lambda n: f'description {n}')
+  name = factory.Sequence(lambda n: f'Book name {n}')
+  description = factory.Sequence(lambda n: f'Description {n}')
+
+  # author = factory.SubFactory(AuthorFactory)
